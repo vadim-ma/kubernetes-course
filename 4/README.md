@@ -1,3 +1,8 @@
+```bash
+kubectl apply -f pod.yaml
+kubectl apply -f service.yaml
+```
+
 https://minikube.sigs.k8s.io/docs/handbook/accessing/
 
 после развертывания порт 31200 слушает ip из сети кубера
@@ -8,3 +13,9 @@ https://minikube.sigs.k8s.io/docs/handbook/accessing/
     http://localhost:31200
 или
     kubectl port-forward --address 0.0.0.0 service/short-app-port 3000:3000
+
+```bash
+kubectl describe pods short-app
+kubectl describe service short-app
+```
+
