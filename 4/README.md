@@ -14,6 +14,8 @@ https://minikube.sigs.k8s.io/docs/handbook/accessing/
 или
     kubectl port-forward --address 0.0.0.0 service/short-app-port 3000:3000
 
+http://minikube.vadima.ru:3000/    
+
 ```bash
 kubectl describe pods short-app
 kubectl describe service short-app
