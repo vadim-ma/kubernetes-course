@@ -16,3 +16,9 @@ minikube addons enable ingress
 6.5
 kubectl apply -f ingress.yaml
 kubectl get ingress
+
+NODE_PORT=$(kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[?(@.name=="http")].nodePort}')
+sudo apt update
+sudo apt install -y socat
+MINIKUBE_IP=$(minikube ip)
+sudo socat TCP-LISTEN:80,fork,reuseaddr TCP:${MINIKUBE_IP}:${NODE_PORT} &
